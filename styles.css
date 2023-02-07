@@ -13,7 +13,6 @@ text-align:center;
 background-color:pink;}
 
 body{
-background-image:url(punks.jpg);
+background-image:url("punks.jpg");
 background-size:cover;
-background-attachment:fixed;
 }
