@@ -1,30 +1,156 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<div class="container">
-  <h1>Domain on Sale!</h1>
-  <h2>CryptoPunks.Games</h2>
-  <p>Web3 is the Future</p>
-  
-  <div id="game">
-    <h3>Click the Button</h3>
-    <button id="game-button">Start Game</button>
-    <p id="game-score">Score: 0</p>
-  </div>
-</div>
+	<title>CryptoPunks</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			background-color: #F9F9F9;
+		}
 
-<script>
-  const gameButton = document.querySelector('#game-button');
-  const gameScore = document.querySelector('#game-score');
-  let score = 0;
-  
-  gameButton.addEventListener('click', () => {
-    score++;
-    gameScore.textContent = `Score: ${score}`;
-  });
-</script>
+		.header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 20px;
+			background-color: #FFF;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+		}
 
+		.logo {
+			font-size: 24px;
+			font-weight: bold;
+			color: #333;
+		}
 
+		.navigation {
+			display: flex;
+			align-items: center;
+		}
+
+		.navigation a {
+			margin-left: 20px;
+			font-size: 16px;
+			color: #333;
+			text-decoration: none;
+			transition: all 0.3s ease-in-out;
+		}
+
+		.navigation a:hover {
+			color: #0095DD;
+		}
+
+		.hero {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 400px;
+			background-image: url('punks.jpg');
+			background-size: cover;
+			background-position: center;
+			text-align: center;
+			color: #FFF;
+			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+		}
+
+		.hero h1 {
+			font-size: 48px;
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+
+		.hero p {
+			font-size: 24px;
+			margin-bottom: 40px;
+		}
+
+		.cta {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: #0095DD;
+			padding: 40px;
+			color: #FFF;
+			text-align: center;
+		}
+
+		.cta h2 {
+			font-size: 32px;
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+
+		.cta p {
+			font-size: 24px;
+			margin-bottom: 40px;
+		}
+
+		.cta button {
+			padding: 15px 30px;
+			font-size: 18px;
+			font-weight: bold;
+			color: #FFF;
+			background-color: #333;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+		}
+
+		.cta button:hover {
+			background-color: #FFF;
+			color: #0095DD;
+		}
+
+		.footer {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 20px;
+			background-color: #333;
+			color: #FFF;
+			font-size: 16px;
+			text-align: center;
+		}
+
+		.footer a {
+			color: #FFF;
+			text-decoration: none;
+			transition: all 0.3s ease-in-out;
+		}
+
+		.footer a:hover {
+			color: #0095DD;
+		}
+	</style>
+</head>
+<body>
+	<header class="header">
+		<div class="logo">CryptoPunks</div>
+		<nav class="navigation">
+			<a href="#">Home</a>
+			<a href="#">About</a>
+			<a href="#">Contact</a>
+		</nav>
+	</header>
+	<section class="hero">
+		<h1>Own a Piece of Crypto History</h1>
+		<p>Get your very own CryptoPunk today!</p>
+	</section>
+	<section class="cta">
+		<h2>Join the Revolution</h2>
+		<p>Buy your CryptoPunk now and become part of the blockchain community.</p>
+		<button>Buy Now</button>
+	</section>
+	<footer class="footer">
+		<p>© 2023 CryptoPunks. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+	</footer>
 </body>
 </html>
+
+
+
+
 
