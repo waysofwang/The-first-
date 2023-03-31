@@ -1,97 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Neon Future</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background-color: #0f0f1a;
-      }
-      
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        background-color: #00e6e6;
-        color: #0f0f1a;
-      }
-      
-      h1, h2 {
-        margin: 0;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-      }
-      
-      h1 {
-        font-size: 60px;
-      }
-      
-      h2 {
-        font-size: 30px;
-      }
-      
-      .main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 50px;
-        color: white;
-      }
-      
-      .main img {
-        width: 100%;
-        max-width: 800px;
-        height: auto;
-        margin-bottom: 30px;
-      }
-      
-      footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100px;
-        background-color: #00e6e6;
-        color: #0f0f1a;
-      }
-      
-      footer p {
-        margin: 0;
-      }
-      body {
-  background-image: url('punks.jpg');
-  background-size: cover;
-  animation-name: moveBackground;
-  animation-duration: 30s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-@keyframes moveBackground {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 100% 100%;
-  }
-}
-
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>DOMAIN ON SALE!</h1>
-      <h2>cryptopunks.games</h2>
-    </header>
-    <div class="main">
-      <img src="punks.jpg" alt="Neon Punks">
-      <h2>Web3 is the future</h2>
-    </div>
-    <footer>
-      <p>Contact us at <a href="mailto:waysofwang@gmail.com">waysofwang@gmail.com</a></p>
-    </footer>
-  </body>
+   <head>
+      <title>CryptoPunks Games</title>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+      <nav>
+         <h1>CryptoPunks Games</h1>
+         <a href="#contact">Contact Us</a>
+      </nav>
+      <header class="hero">
+         <h2>DOMAIN ON SALE!</h2>
+         <h1>CryptoPunks<br>Games</h1>
+         <p>Web3 is the future</p>
+      </header>
+      <section class="main">
+         <h2>What We Offer</h2>
+         <p>CryptoPunks Games is a blockchain-based gaming platform that allows users to buy, sell, and play games using cryptocurrencies. Our games are powered by the Ethereum blockchain, providing a secure and transparent gaming experience.</p>
+         <a href="#contact" class="btn">Contact Us</a>
+      </section>
+      <section class="features">
+         <h2>Our Features</h2>
+         <div class="feature">
+            <img src="punks.jpg" alt="Feature 1">
+            <h3>Secure Gaming</h3>
+            <p>Our games are powered by the Ethereum blockchain, providing a secure and transparent gaming experience.</p>
+         </div>
+         <div class="feature">
+            <img src="punks.jpg" alt="Feature 2">
+            <h3>Decentralized Marketplace</h3>
+            <p>Our marketplace is fully decentralized, allowing users to buy and sell games and game items using cryptocurrencies.</p>
+         </div>
+         <div class="feature">
+            <img src="punks.jpg" alt="Feature 3">
+            <h3>Fair Gaming</h3>
+            <p>Our games are designed to be fair and transparent, with all game outcomes determined by smart contracts on the blockchain.</p>
+         </div>
+      </section>
+      <section class="cta">
+         <h2>Join the Future of Gaming</h2>
+         <a href="#contact" class="btn">Contact Us</a>
+      </section>
+      <footer id="contact">
+         <h2>Contact Us</h2>
+         <form action="mailto:waysofwang@gmail.com" method="post" enctype="text/plain">
+            <input type="text" placeholder="Name" name="name" required>
+            <input type="email" placeholder="Email" name="email" required>
+            <textarea placeholder="Message" name="message" required></textarea>
+            <button type="submit">Send</button>
+         </form>
+      </footer>
+   </body>
 </html>
