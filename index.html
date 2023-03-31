@@ -1,102 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CryptoPunks.Games - Domain on Sale!</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-		body {
-			background: #040404;
-			color: white;
-			font-family: 'Montserrat', sans-serif;
-			margin: 0;
-			padding: 0;
-			background-image: url(punks.jpg);
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-			animation: neon-bg 10s linear infinite;
-		}
-		
-		h1 {
-			font-size: 6rem;
-			margin: 0;
-			padding: 1rem;
-			text-align: center;
-			animation: neon 2s ease-in-out infinite alternate;
-		}
-		
-		h2 {
-			font-size: 2.5rem;
-			margin-top: 2rem;
-			text-align: center;
-			animation: neon 2s ease-in-out infinite alternate;
-		}
-		
-		p {
-			font-size: 1.5rem;
-			margin-top: 2rem;
-			text-align: center;
-			animation: neon 2s ease-in-out infinite alternate;
-		}
-		
-		a {
-			color: white;
-			text-decoration: none;
-			font-size: 1.2rem;
-			animation: neon 2s ease-in-out infinite alternate;
-		}
-		
-		.container {
-			max-width: 800px;
-			margin: 0 auto;
-			text-align: center;
-			padding: 5rem 1rem;
-			animation: neon 2s ease-in-out infinite alternate;
-		}
-		
-		@keyframes neon {
-			from {
-				text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
-			}
-			
-			to {
-				text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
-			}
-		}
-		
-		@keyframes neon-bg {
-			from {
-				filter: hue-rotate(0deg);
-			}
-			
-			to {
-				filter: hue-rotate(360deg);
-			}
-		}
-		
-		@media only screen and (max-width: 600px) {
-			h1 {
-				font-size: 3rem;
-			}
-			
-			h2 {
-				font-size: 1.5rem;
-			}
-			
-			p {
-				font-size: 1rem;
-			}
-		}
-	</style>
-</head>
-<body>
 	<div class="container">
-		<h1>Domain on Sale!</h1>
-		<h2>CryptoPunks.Games</h2>
-		<p>Web3 is the Future</p>
-		<p>Contact us at <a href="mailto:waysofwang@gmail.com">
-			</a></p>
+  <h1>Domain on Sale!</h1>
+  <h2>CryptoPunks.Games</h2>
+  <p>Web3 is the Future</p>
+  
+  <div id="game">
+    <h3>Click the Button</h3>
+    <button id="game-button">Start Game</button>
+    <p id="game-score">Score: 0</p>
+  </div>
 </div>
+
+<script>
+  const gameButton = document.querySelector('#game-button');
+  const gameScore = document.querySelector('#game-score');
+  let score = 0;
+  
+  gameButton.addEventListener('click', () => {
+    score++;
+    gameScore.textContent = `Score: ${score}`;
+  });
+</script>
+
 
 </body>
 </html>
