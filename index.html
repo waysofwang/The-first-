@@ -1,129 +1,97 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Neon Future</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        background: black;
-      }
-      
-      .header {
-        width: 100%;
-        height: 70px;
-        background: linear-gradient(to right, #FF5733, #FFD700);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 50px;
-      }
-      
-      .header h1, .header h2 {
-        margin: 0;
-        font-size: 24px;
-        color: black;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-      }
-      
-      .header h1 {
-        font-weight: bold;
-      }
-      
-      .header h2 {
-        font-weight: lighter;
-      }
-      
-      .main-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 500px;
-        background-image: url("punks.jpg");
-        background-size: cover;
-        background-position: center;
-      }
-      
-      .main-content h1 {
-        color: white;
-        font-size: 64px;
-        text-align: center;
-        text-shadow: 0px 0px 10px #00FFFF;
-      }
-      
-      .main-content p {
-        color: white;
-        font-size: 32px;
-        text-align: center;
-        margin-top: 30px;
-        text-shadow: 0px 0px 10px #00FFFF;
-      }
-      
-      .contact {
-        width: 100%;
-        height: 50px;
-        background: #191919;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-size: 18px;
-        letter-spacing: 1px;
-      }
-      
-      .contact a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        margin-left: 5px;
-      }
-      
-      /* Neon effect */
-      .neon {
-        font-size: 80px;
-        color: #FFF;
-        text-shadow: 0 0 5px #FFF,
-          0 0 10px #FFF,
-          0 0 20px #FFF,
-          0 0 40px #0FF,
-          0 0 80px #0FF,
-          0 0 90px #0FF,
-          0 0 100px #0FF,
-          0 0 150px #0FF;
-        animation: flicker 1s infinite alternate;
-        margin: 0;
-        padding: 0;
-      }
-      
-      @keyframes flicker {
-        0% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.8;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-      
-      /* Moving graphics */
-      .moving-graphics {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: -1;
-      }
-      
-      .moving-graphics .circle {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background-color: rgba(255, 255, 
+<head>
+	<title>CryptoPunks.Games - Domain on Sale!</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			background: #040404;
+			color: white;
+			font-family: 'Montserrat', sans-serif;
+			margin: 0;
+			padding: 0;
+			background-image: url(punks.jpg);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			animation: neon-bg 10s linear infinite;
+		}
+		
+		h1 {
+			font-size: 6rem;
+			margin: 0;
+			padding: 1rem;
+			text-align: center;
+			animation: neon 2s ease-in-out infinite alternate;
+		}
+		
+		h2 {
+			font-size: 2.5rem;
+			margin-top: 2rem;
+			text-align: center;
+			animation: neon 2s ease-in-out infinite alternate;
+		}
+		
+		p {
+			font-size: 1.5rem;
+			margin-top: 2rem;
+			text-align: center;
+			animation: neon 2s ease-in-out infinite alternate;
+		}
+		
+		a {
+			color: white;
+			text-decoration: none;
+			font-size: 1.2rem;
+			animation: neon 2s ease-in-out infinite alternate;
+		}
+		
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			text-align: center;
+			padding: 5rem 1rem;
+			animation: neon 2s ease-in-out infinite alternate;
+		}
+		
+		@keyframes neon {
+			from {
+				text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+			}
+			
+			to {
+				text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
+			}
+		}
+		
+		@keyframes neon-bg {
+			from {
+				filter: hue-rotate(0deg);
+			}
+			
+			to {
+				filter: hue-rotate(360deg);
+			}
+		}
+		
+		@media only screen and (max-width: 600px) {
+			h1 {
+				font-size: 3rem;
+			}
+			
+			h2 {
+				font-size: 1.5rem;
+			}
+			
+			p {
+				font-size: 1rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Domain on Sale!</h1>
+		<h2>CryptoPunks.Games</h2>
+		<p>Web3 is the Future</p>
+		<p>Contact us at <a href="mailto:waysofwang@gmail.com">
