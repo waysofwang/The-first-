@@ -1,56 +1,129 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>CryptoPunks Games</title>
-      <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-      <link href="style.css" rel="stylesheet">
-   </head>
-   <body>
-  
-      <nav>
-         <h1>CryptoPunks Games</h1>
-         <a href="#contact">Contact Us</a>
-      </nav>
-      <header class="hero">
-         <h2>DOMAIN ON SALE!</h2>
-         <h1>CryptoPunks<br>Games</h1>
-         <p>Web3 is the future</p>
-      </header>
-      <section class="main">
-         <h2>What We Offer</h2>
-         <p>CryptoPunks Games is a blockchain-based gaming platform that allows users to buy, sell, and play games using cryptocurrencies. Our games are powered by the Ethereum blockchain, providing a secure and transparent gaming experience.</p>
-         <a href="#contact" class="btn">Contact Us</a>
-      </section>
-      <section class="features">
-         <h2>Our Features</h2>
-         <div class="feature">
-            <img src="punks.jpg" alt="Feature 1">
-            <h3>Secure Gaming</h3>
-            <p>Our games are powered by the Ethereum blockchain, providing a secure and transparent gaming experience.</p>
-         </div>
-         <div class="feature">
-            <img src="punks.jpg" alt="Feature 2">
-            <h3>Decentralized Marketplace</h3>
-            <p>Our marketplace is fully decentralized, allowing users to buy and sell games and game items using cryptocurrencies.</p>
-         </div>
-         <div class="feature">
-            <img src="punks.jpg" alt="Feature 3">
-            <h3>Fair Gaming</h3>
-            <p>Our games are designed to be fair and transparent, with all game outcomes determined by smart contracts on the blockchain.</p>
-         </div>
-      </section>
-      <section class="cta">
-         <h2>Join the Future of Gaming</h2>
-         <a href="#contact" class="btn">Contact Us</a>
-      </section>
-      <footer id="contact">
-         <h2>Contact Us</h2>
-         <form action="mailto:waysofwang@gmail.com" method="post" enctype="text/plain">
-            <input type="text" placeholder="Name" name="name" required>
-            <input type="email" placeholder="Email" name="email" required>
-            <textarea placeholder="Message" name="message" required></textarea>
-            <button type="submit">Send</button>
-         </form>
-      </footer>
-   </body>
-</html>
+  <head>
+    <title>Neon Future</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: black;
+      }
+      
+      .header {
+        width: 100%;
+        height: 70px;
+        background: linear-gradient(to right, #FF5733, #FFD700);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 50px;
+      }
+      
+      .header h1, .header h2 {
+        margin: 0;
+        font-size: 24px;
+        color: black;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      
+      .header h1 {
+        font-weight: bold;
+      }
+      
+      .header h2 {
+        font-weight: lighter;
+      }
+      
+      .main-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+        background-image: url("punks.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+      
+      .main-content h1 {
+        color: white;
+        font-size: 64px;
+        text-align: center;
+        text-shadow: 0px 0px 10px #00FFFF;
+      }
+      
+      .main-content p {
+        color: white;
+        font-size: 32px;
+        text-align: center;
+        margin-top: 30px;
+        text-shadow: 0px 0px 10px #00FFFF;
+      }
+      
+      .contact {
+        width: 100%;
+        height: 50px;
+        background: #191919;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 18px;
+        letter-spacing: 1px;
+      }
+      
+      .contact a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 5px;
+      }
+      
+      /* Neon effect */
+      .neon {
+        font-size: 80px;
+        color: #FFF;
+        text-shadow: 0 0 5px #FFF,
+          0 0 10px #FFF,
+          0 0 20px #FFF,
+          0 0 40px #0FF,
+          0 0 80px #0FF,
+          0 0 90px #0FF,
+          0 0 100px #0FF,
+          0 0 150px #0FF;
+        animation: flicker 1s infinite alternate;
+        margin: 0;
+        padding: 0;
+      }
+      
+      @keyframes flicker {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.8;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      
+      /* Moving graphics */
+      .moving-graphics {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+      
+      .moving-graphics .circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 
