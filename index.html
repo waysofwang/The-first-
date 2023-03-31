@@ -61,6 +61,24 @@
       footer p {
         margin: 0;
       }
+      body {
+  background-image: url('punks.jpg');
+  background-size: cover;
+  animation-name: moveBackground;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes moveBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+
     </style>
   </head>
   <body>
