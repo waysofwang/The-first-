@@ -22,7 +22,7 @@ function preload() {
   // Load bird image
   this.load.image('bird', 'Users/sonamwangchuklama/Downloads/bird.png');
   // Load pipe top and bottom images
-  this.load.image('pipeTop', 'Users/sonamwangchuklama/Downloads/pipe_top.png');
+  this.load.image('pipeTop', 'MacintoshHD/Users/sonamwangchuklama/Downloads/pipe_top.png');
   this.load.image('pipeBottom', 'Users/sonamwangchuklama/Downloads/pipe_bottom.png');
 }
 
