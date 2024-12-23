@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto Market</title>
+    <title>Crypto Trading Dashboard</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -136,23 +136,22 @@
                     }
                 });
 
-                // Check if response is ok
                 if (!response.ok) {
-                    throw new Error(`Error: ${response.statusText}`);
+                    throw new Error(`HTTP Error: ${response.statusText}`);
                 }
 
                 const data = await response.json();
 
-                // Check if we received data
                 if (data.status.error_code !== 0) {
                     throw new Error(`API Error: ${data.status.error_message}`);
                 }
 
                 allCryptos = data.data.slice(0, 30); // Store top 30 cryptos
                 displayCryptos(allCryptos);
+
             } catch (error) {
-                cryptoContainer.innerHTML = `<p>Error fetching crypto data: ${error.message}</p>`;
-                console.error(error);
+                console.error('Error:', error);
+                cryptoContainer.innerHTML = `<p style="color: red;">Error fetching crypto data: ${error.message}</p>`;
             }
         };
 
