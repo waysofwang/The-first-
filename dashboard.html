@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .crypto, .stocks {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .item {
+            flex: 1 1 calc(33.33% - 20px);
+            margin: 10px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .item h3 {
+            margin: 0 0 10px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Trading Dashboard</h1>
+        <div class="crypto">
+            <h2>Cryptocurrencies</h2>
+            <div id="crypto-data"></div>
+        </div>
+        <div class="stocks">
+            <h2>Stocks</h2>
+            <div id="stock-data"></div>
+        </div>
+    </div>
+    <script>
+        const cryptoContainer = document.getElementById('crypto-data');
+        const stockContainer = document.getElementById('stock-data');
+
+        const fetchCryptoData = async () => {
+            try {
+                const response = await fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', {
+                    method: 'GET',
+                    headers: {
+                        'X-CMC_PRO_API_KEY': 'ff1e7132-951f-4454-9c82-4df678653e2d'
+                    }
+                });
+                const data = await response.json();
+                const cryptos = data.data.slice(0, 3); // Display the first 3 cryptocurrencies
+                cryptoContainer.innerHTML = cryptos.map(crypto => `
+                    <div class="item">
+                        <h3>${crypto.name} (${crypto.symbol})</h3>
+                        Price: $${crypto.quote.USD.price.toFixed(2)}
+                    </div>
+                `).join('');
+            } catch (error) {
+                cryptoContainer.innerHTML = `<p>Error fetching crypto data.</p>`;
+                console.error(error);
+            }
+        };
+
+        const fetchStockData = async () => {
+            try {
+                const response = await fetch('https://finnhub.io/api/v1/quote?symbol=AAPL&token=YOUR_FINNHUB_API_KEY');
+                const data = await response.json();
+                stockContainer.innerHTML = `
+                    <div class="item"><h3>Apple (AAPL)</h3>Price: $${data.c}</div>
+                `;
+            } catch (error) {
+                stockContainer.innerHTML = `<p>Error fetching stock data.</p>`;
+                console.error(error);
+            }
+        };
+
+        const updateDashboard = () => {
+            fetchCryptoData();
+            fetchStockData();
+        };
+
+        updateDashboard();
+        setInterval(updateDashboard, 60000); // Update every minute
+    </script>
+</body>
+</html>
