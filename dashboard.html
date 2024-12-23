@@ -129,7 +129,7 @@
 
         const fetchCryptoData = async () => {
             try {
-                const response = await fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=30', {
+                const response = await fetch('https://pro-api.coinmarketcap.com/v2.0.10/cryptocurrency/listings/latest?limit=30', {
                     method: 'GET',
                     headers: {
                         'X-CMC_PRO_API_KEY': 'ff1e7132-951f-4454-9c82-4df678653e2d'
