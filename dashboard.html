@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trading Dashboard</title>
+    <title>Crypto Trading Dashboard</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -16,25 +16,13 @@
             background-color: #222;
             color: #fff;
             padding: 20px 10px;
+            text-align: center;
         }
         header h1 {
             margin: 0;
             font-size: 28px;
             font-weight: bold;
             text-transform: uppercase;
-        }
-        nav {
-            margin-top: 10px;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 14px;
-            text-transform: uppercase;
-        }
-        nav a:hover {
-            text-decoration: underline;
         }
         .container {
             max-width: 1200px;
@@ -44,9 +32,29 @@
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+        .search-bar {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .search-bar input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            margin-right: 10px;
+        }
+        .search-bar button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
         .card {
@@ -70,6 +78,18 @@
             font-size: 14px;
             color: #7f8c8d;
         }
+        .sector {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .sector div {
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            width: 30%;
+            text-align: center;
+        }
         footer {
             text-align: center;
             margin: 20px 0;
@@ -80,58 +100,84 @@
 </head>
 <body>
     <header>
-        <h1>Trading Dashboard</h1>
-        <nav>
-            <a href="#">Markets</a>
-            <a href="#">Cryptocurrencies</a>
-            <a href="#">Commodities</a>
-            <a href="#">News</a>
-        </nav>
+        <h1>Crypto Trading Dashboard</h1>
     </header>
+
     <div class="container">
-        <h2>Cryptocurrencies</h2>
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search for a cryptocurrency" onkeyup="searchCrypto()">
+            <button onclick="searchCrypto()">Search</button>
+        </div>
+
+        <h2>Top 30 Cryptocurrencies</h2>
         <div id="crypto-data" class="grid"></div>
+
+        <div class="sector">
+            <div><strong>Gaming</strong></div>
+            <div><strong>DeFi</strong></div>
+            <div><strong>Metaverse</strong></div>
+        </div>
     </div>
+
     <footer>
-        &copy; 2024 Trading Dashboard. All rights reserved.
+        &copy; 2024 Crypto Trading Dashboard. All rights reserved.
     </footer>
 
     <script>
         const cryptoContainer = document.getElementById('crypto-data');
+        let allCryptos = [];
 
         const fetchCryptoData = async () => {
             try {
-                const response = await fetch('https://pro-api.coinmarketcap.com/v3/cryptocurrency/listings/latest', {
+                const response = await fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=30', {
                     method: 'GET',
                     headers: {
-                        'X-CMC_PRO_API_KEY':'ff1e7132-951f-4454-9c82-4df678653e2d'
+                        'X-CMC_PRO_API_KEY': 'ff1e7132-951f-4454-9c82-4df678653e2d'
                     }
                 });
+
+                // Check if response is ok
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.statusText}`);
+                }
+
                 const data = await response.json();
 
-                const cryptos = data.data.slice(0, 10); // Display the top 10 cryptocurrencies
-                cryptoContainer.innerHTML = cryptos.map(crypto => `
-                    <div class="card">
-                        <h3>${crypto.name} (${crypto.symbol})</h3>
-                        <p>Price: $${crypto.quote.USD.price.toFixed(2)}</p>
-                        <p>Market Cap: $${(crypto.quote.USD.market_cap / 1e9).toFixed(2)}B</p>
-                        <p>24h Change: <span style="color: ${crypto.quote.USD.percent_change_24h > 0 ? 'green' : 'red'};">
-                            ${crypto.quote.USD.percent_change_24h.toFixed(2)}%
-                        </span></p>
-                    </div>
-                `).join('');
+                // Check if we received data
+                if (data.status.error_code !== 0) {
+                    throw new Error(`API Error: ${data.status.error_message}`);
+                }
+
+                allCryptos = data.data.slice(0, 30); // Store top 30 cryptos
+                displayCryptos(allCryptos);
             } catch (error) {
-                cryptoContainer.innerHTML = `<p>Error fetching crypto data.</p>`;
+                cryptoContainer.innerHTML = `<p>Error fetching crypto data: ${error.message}</p>`;
                 console.error(error);
             }
         };
 
-        const updateDashboard = () => {
-            fetchCryptoData();
+        const displayCryptos = (cryptos) => {
+            cryptoContainer.innerHTML = cryptos.map(crypto => `
+                <div class="card">
+                    <h3>${crypto.name} (${crypto.symbol})</h3>
+                    <p>Price: $${crypto.quote.USD.price.toFixed(2)}</p>
+                    <p>Market Cap: $${(crypto.quote.USD.market_cap / 1e9).toFixed(2)}B</p>
+                    <p>24h Change: <span style="color: ${crypto.quote.USD.percent_change_24h > 0 ? 'green' : 'red'};">
+                        ${crypto.quote.USD.percent_change_24h.toFixed(2)}%
+                    </span></p>
+                </div>
+            `).join('');
         };
 
-        updateDashboard();
-        setInterval(updateDashboard, 60000); // Update every minute
+        const searchCrypto = () => {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const filteredCryptos = allCryptos.filter(crypto =>
+                crypto.name.toLowerCase().includes(searchTerm) || crypto.symbol.toLowerCase().includes(searchTerm)
+            );
+            displayCryptos(filteredCryptos);
+        };
+
+        fetchCryptoData();
     </script>
 </body>
 </html>
