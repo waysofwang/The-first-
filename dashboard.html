@@ -113,7 +113,7 @@
 
         const fetchStockData = async () => {
             try {
-                const response = await fetch('https://finnhub.io/api/v1/quote?symbol=AAPL&token=ff1e7132-951f-4454-9c82-4df678653e2d');
+                const response = await fetch('https://finnhub.io/api/v1/quote?symbol=AAPL&token=');
                 const data = await response.json();
                 stockContainer.innerHTML = `
                     <div class="card">
